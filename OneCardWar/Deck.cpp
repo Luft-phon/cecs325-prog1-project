@@ -2,13 +2,13 @@
 #include <utility> 
 using namespace std;
 Deck::Deck() : topIndex(0){
-	const char suits[] = { 'C', 'S', 'D', 'H' };
-	const char ranks[] = { 'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K' };
+	const char suits[4] = { 'C', 'S', 'D', 'H' };
+	const char ranks[13] = { 'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K' };
 
-	int index = 0;
-	for (int s = 0; s < 4; ++s ) {
+	int idx = 0;  
+	for (int s = 0; s < 4; ++s) {
 		for (int r = 0; r < 13; ++r) {
-			cards[index] = Card(ranks[r], suits[s]);
+			cards[idx++] = Card(ranks[r], suits[s]);
 		}
 	}
 }
@@ -34,6 +34,7 @@ void Deck::display() const {
 }
 
 void Deck::shuffle() {
+	srand(time(0));
 	for (int i = 51; i > 0; --i) {
 		int j = rand() % (i + 1);
 		std::swap(cards[i], cards[j]);

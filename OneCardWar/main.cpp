@@ -6,28 +6,21 @@ using namespace std;
 int main() {
     Deck deck;
 
-    // 1) Tạo deck đã xong ở constructor
-
-    // 2) Hỏi tên 2 người chơi
     string p1, p2;
     cout << "Enter the name of the first player: ";
     getline(cin, p1);
-    if (p1.empty()) getline(cin, p1); // phòng khi getline nuốt newline
+    if (p1.empty()) getline(cin, p1); 
     cout << "Enter the name of the second player: ";
     getline(cin, p2);
 
-    // 3) In deck gốc
     cout << "\n Original Deck\n\n";
     deck.display();
 
-    // 4) Shuffle
     deck.shuffle();
 
-    // 5) In deck đã shuffle
     cout << "\n Shuffled Deck\n\n";
     deck.display();
 
-    // 6) Chơi 26 ván
     int p1Wins = 0, p2Wins = 0, ties = 0;
 
     for (int game = 1; game <= 26; ++game) {
@@ -60,7 +53,6 @@ int main() {
         }
     }
 
-    // 7) In thống kê cuối
     cout << "\n------Final Stats-------\n\n";
     cout << "       " << p1 << " vs. " << p2 << "\n\n";
 

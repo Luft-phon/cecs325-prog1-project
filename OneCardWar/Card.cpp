@@ -1,7 +1,7 @@
 ﻿#include "Card.h"
 
-Card::Card(char s, char r) : suit(s), rank(r) {}
-Card::Card() : rank('A'), suit('C') {} 
+Card::Card(char r, char s) : rank(r),suit(s) {}
+Card::Card() : rank('A'), suit('C') {}
 
 static int rankValue(char rank) {
 	switch (rank) {
@@ -18,16 +18,14 @@ static int rankValue(char rank) {
 	case 'Q': return 12;
 	case 'K': return 13;
 	case 'A': return 14;
-	default: return 0; // Invalid rank
+	default: return 0; 
 	}
 }
 
 void Card::display() const {
-	if (rank == 'T') {
-		cout << "10";
-	}
-	else { cout << suit; }
-	cout << rank;
+	if (rank == 'T') cout << "10";
+	else             cout << rank;
+	cout << suit;
 }
 
 int Card::compare(const Card& other) const {
